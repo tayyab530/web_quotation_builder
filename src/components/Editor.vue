@@ -1,4 +1,5 @@
 <script>
+import Style from '../styles/field.module.css'
 export default {
   data() {
     return {
@@ -26,8 +27,8 @@ export default {
 </script>
 
 <template>
-  <div class="p-10">
-    <div>
+  <div class="flex flex-col space-y-8 items-start mr-5 mt-6">
+    <div class={Style.field}>
       <label>Company Title </label
       ><input
         v-bind="newTitle"
@@ -35,10 +36,9 @@ export default {
         placeholder="Enter company title"
       />
     </div>
-    <br />
-    <div>
+    <div class={Style.field}>
       <label>Company Logo URL </label
-      ><input placeholder="Enter company Logo URL" class="bg-red-500" />
+      ><input placeholder="Enter company Logo URL" />
     </div>
   </div>
 </template>
