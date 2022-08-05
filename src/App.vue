@@ -6,11 +6,19 @@ import Template from './components/Template.vue';
 
 export default {
   components: {
-    Template
+    Template,
+    Editor
   },
   data() {
     return {
-      coverTitle: 'Hello from parent',
+      coverTitle: 'Your Cover Title',
+      logoURL: "https://www.pngkey.com/png/full/360-3601772_your-logo-here-your-company-logo-here-png.png",
+    }
+  },
+  methods:{
+    updateTitle(newTitle){
+      this.coverTitle = newTitle;
+      // alert("hello child" + newTitle)
     }
   },
 }
@@ -18,7 +26,6 @@ export default {
 
 <template>
   <div>
-    <Editor @editTitle="(newTitle) => coverTitle = newTitle"></Editor>
-    <Template :title="coverTitle"></Template>
-  </div>
-</template>
+    <Editor v-on:editTitle="updateTitle"></Editor>
+    <Template :title="coverTitle" :logoUrl="logoURL"></Template>
+  </div></template>
